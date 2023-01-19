@@ -1,0 +1,36 @@
+select * from customers;
+
+select * from customers order by name;
+
+select name, phone from customers order by name desc;  //desc = descending order
+
+select * from products where pid = 1;
+
+select * from products where pid = 1 or pid = 2 or pid = 4;
+
+select * from products where name like "%o%"; // contains the letter o (not case sensitive )
+
+select * from products where price >= 15;
+
+select count(name) from products; // count is a function
+
+select sum(price) from  products; // sum is a function
+
+select * from products, original_place; // everything from table a * table b
+
+select * from products, original_place
+
+select * from products, original_place where products.sid = original_place.pid;
+
+select * from products a, original_place b where a.sid = b.pid;
+
+select * from invoices a, customers b, products c where a.cid = b.cid and a.pid = c.pid;
+
+
+
+
+
+
+
+
+
