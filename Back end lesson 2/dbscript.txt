@@ -1,0 +1,114 @@
+drop database myshop;
+
+create database myshop;
+
+use myshop;
+
+create table original_place(
+    pid int primary key auto_increment,
+    source VARCHAR(100),
+    vendor VARCHAR(255)
+);
+
+insert into original_place(source, vendor)
+values("USA", "AAA Limited");
+
+insert into original_place(source, vendor)
+values("USA", "BBB Limited");
+
+insert into original_place(source, vendor)
+values("China", "CCC Limited");
+
+insert into original_place(source, vendor)
+values("Japan", "DDD Limited");
+
+
+
+create table products (
+    pid int primary key auto_increment,
+    name VARCHAR(100) not null,
+    price float not null, 
+    photo VARCHAR(255) not null,
+    sid int,
+    foreign key(sid) references original_place(pid)
+);
+
+insert into products(pid, name, price, photo, sid)
+values(1, "Apple", 15, "apple.jpg", 1);
+
+insert into products(pid, name, price, photo, sid)
+values(2, "Orange", 16.7, "orange.jpg", 2);
+
+insert into products(pid, name, price, photo, sid)
+values(3, "Banana", 12.8, "banana.jpg", 1);
+
+insert into products(pid, name, price, photo, sid)
+values(4, "Grape", 19.2, "grape.jpg", 3);
+
+insert into products(pid, name, price, photo, sid)
+values(5, "Mango", 17, "mango.jpg", 4);
+
+
+
+create table customers(
+    cid int primary key auto_increment,
+    name VARCHAR(100),
+    phone char(8),
+    gender char(1)
+);
+
+insert into customers(cid, name, phone, gender) 
+values(1, "Peter", "99998888", "M");
+
+insert into customers(cid, name, phone, gender) 
+values(2, "Mary", "77776666", "F");
+
+insert into customers(cid, name, phone, gender) 
+values(3, "Eva", "55554444", "F");
+
+insert into customers(cid, name, phone, gender) 
+values(4, "Daniel", "33332222", "M");
+
+insert into customers(cid, name, phone, gender) 
+values(5, "Sean", "11110000", "M");
+
+insert into customers(name, phone, gender)
+values("Lily", "12341234", "M");
+
+
+
+create table invoices(
+    inv_id int primary key auto_increment,
+    inv_date date not null,
+    pid int not null,
+    cid int not null,
+    foreign key(pid) references products(pid),
+    foreign key(cid) references customers(cid)
+);
+
+insert into invoices(inv_date, pid, cid)
+values("2023-01-01", 1, 1);
+
+insert into invoices(inv_date, pid, cid)
+values("2023-01-04", 2, 3);
+
+insert into invoices(inv_date, pid, cid)
+values("2023-07-01", 1, 2);
+
+insert into invoices(inv_date, pid, cid)
+values("2023-01-11", 3, 1);
+
+insert into invoices(inv_date, pid, cid)
+values("2023-28-01", 1, 2);
+
+
+
+
+
+
+
+drop table products; //delete the table itself
+
+delete from products; //delete everything in products table
+
+delete from products where pid = 3; //delete single item
