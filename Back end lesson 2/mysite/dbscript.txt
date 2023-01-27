@@ -54,26 +54,27 @@ create table customers(
     cid int primary key auto_increment,
     name VARCHAR(100),
     phone char(8),
-    gender char(1)
+    gender char(1),
+    photo VARCHAR(255)
 );
 
 insert into customers(cid, name, phone, gender) 
-values(1, "Peter", "99998888", "M");
+values(1, "Peter", "99998888", "M", "s1.webp");
 
 insert into customers(cid, name, phone, gender) 
-values(2, "Mary", "77776666", "F");
+values(2, "Mary", "77776666", "F", "s2.webp");
 
 insert into customers(cid, name, phone, gender) 
-values(3, "Eva", "55554444", "F");
+values(3, "Eva", "55554444", "F", "s3.webp");
 
 insert into customers(cid, name, phone, gender) 
-values(4, "Daniel", "33332222", "M");
+values(4, "Daniel", "33332222", "M", "s4.webp");
 
 insert into customers(cid, name, phone, gender) 
-values(5, "Sean", "11110000", "M");
+values(5, "Sean", "11110000", "M", "s5.webp");
 
 insert into customers(name, phone, gender)
-values("Lily", "12341234", "M");
+values("Lily", "12341234", "M", "s6.webp");
 
 
 

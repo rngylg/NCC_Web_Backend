@@ -7,7 +7,7 @@
             <li><a href="listcustomer.php">List All Cusomter</a></li>
             <li><a href="#">Update Customer</a></li>
             <li><a href="#">Delete Cusomter</a></li>
-            <li><a href="#">Search Cusomter</a></li>
+            <li><a href="searchcustomer.php">Search Cusomter</a></li>
         </ul>
     </li>
     <li>Product Management</li>

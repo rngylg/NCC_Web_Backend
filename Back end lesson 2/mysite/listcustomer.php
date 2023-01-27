@@ -19,15 +19,14 @@
 
 
     echo "
-
         <table border=1 cellpadding=10>
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Mobile</th>
             <th>Gender</th>
+            <th>Details</th>
         </tr>
-    
     ";
 
     for($i=0; $i<$rowcount; $i++) {
@@ -38,16 +37,34 @@
         $name = $row['name'];
         $phone = $row['phone'];
         $gender = $row['gender'];
-        echo "$cid $name $phone $gender";
+        // echo "$cid $name $phone $gender";
+        // //print_r($row);
+        // echo "<p></p>";
 
-        //print_r($row);
-        echo "<p></p>";
+        echo "
+            <tr>
+                <td>$cid</td>
+                <td>$name</td>
+                <td>$phone</td>
+                <td>$gender</td>
+                <td><a href='listcustomer2.php?cid=$cid'>More</a></td>
+            </tr>
+        ";
+
+
     }
+
+    echo "</table>";
+
+
+
+
+
 
 ?>
 
 
-<table border=1 cellpadding=10>
+<!-- <table border=1 cellpadding=10>
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -75,6 +92,4 @@
         <td>9246</td>
         <td>F</td>
     </tr>
-
-
-</table>
+</table> -->

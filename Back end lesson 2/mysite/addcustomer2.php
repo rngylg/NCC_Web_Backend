@@ -4,8 +4,13 @@
 
     //Print out the values of $_GET arrary(built-in)
     // print_r($_GET); 
-
     // print_r($_POST);
+
+    $filename = $_FILES['photo']['name'];
+    $tempname = $_FILES['photo']['tmp_name'];
+    // echo "$filename $tempname";
+    move_uploaded_file($tempname, "images/".$filename);
+
 
     $name = $_POST["name"];
     $phone = $_POST["phone"];
@@ -18,8 +23,8 @@
     if($con) {
         // echo "<p>Conneted</p>";
 
-        $sql = "Insert into customers(name, phone, gender)
-                values ('$name', '$phone', '$gender');
+        $sql = "Insert into customers(name, phone, gender, photo)
+                values ('$name', '$phone', '$gender', '$filename');
                 ";
 
         // just to check if $sql is correctly typed
@@ -40,13 +45,6 @@
     else {
         echo "Cannot Connect";
     }
-
-
-
-
-
-
-
 
 
 ?>
