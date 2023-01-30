@@ -1,3 +1,17 @@
+<?php
+
+    session_start();
+
+    if($_SESSION['status'] != "ok") {
+        header("location:login.php");
+    }
+    else {
+        $login_name = $_SESSION['name'];
+    }
+?>
+
+
+
 <?php include("connect.php"); ?>
 <h1>List All Customer</h1>
 

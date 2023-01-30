@@ -1,3 +1,18 @@
+<?php
+
+    session_start();
+
+    if($_SESSION['status'] != "ok") {
+        header("location:login.php");
+    }
+    else {
+        $login_name = $_SESSION['name'];
+    }
+?>
+
+
+
+
 <h1> ANC eShop Management System</h1>
 
 <ul>
@@ -12,5 +27,5 @@
     </li>
     <li>Product Management</li>
     <li>Invoice Management</li>
-    <li>Logout</li>
+    <li><a href="logout.php">Logout</li>
 </ul>
