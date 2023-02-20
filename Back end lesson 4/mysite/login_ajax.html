@@ -1,0 +1,80 @@
+<head>
+    <!--    Loading jQiery Library    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#bt1").on("click",function (e) {
+
+                e.preventDefault();
+
+                var name = $("#name").val();
+                var password = $("#password").val();
+
+                var error_count = 0;
+                var error_name_msg = "";
+                var error_password_msg = "";
+
+                if (name == "") {
+                    error_name_msg = "Please enter your name";
+                    error_count++;
+                }
+                if (password == "") {
+                    error_password_msg = "Please enter your password";
+                    error_count++;
+                }
+
+                if (error_count == 0) {
+                    // send data to server
+
+                    $.post("checklogin.php",
+                        {"name":name, "password":password},
+                        function (response) {
+                            console.log(response);
+
+                            if (response == "ok") {
+                                alert("Welcome");
+                            }
+                            else if (response == "not ok") {
+                                alert("Please login again");
+                            }
+
+                            $("#name").val("");
+                            $("#password").val("");
+                            $("#name_error").html("");
+                            $("#password_error").html("");
+
+                        }
+                    );
+                    // $("#name").val("");
+                    // $("#password").val("");
+                }
+                else {
+                    $("#name_error").html(error_name_msg);
+                    $("#password_error").html(error_password_msg);
+                }
+            })
+        });
+
+    </script>
+
+</head>
+<body>
+
+</body>
+
+<h1>Login using JavaScript AJAX</h1>
+
+<form>
+    Name:<input type="text" name="name" id="name"/>
+    <div id="name_error"></div>
+    <p></p>
+
+    Password:<input type="password" name="password" id="password"/>
+    <div id="password_error"></div>
+    <p></p>
+
+    <input type="submit" value="Login" id="bt1"/>
+
+</form>
