@@ -1,0 +1,42 @@
+<head xmlns="http://www.w3.org/1999/html">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           $("#bt1").on("click",function () {
+               // call the server to get data in JSON format
+               $.get("get_jsondata.php",function (response) {
+                    var data = JSON.parse(response);
+                    console.log(data);
+
+                    var result = `<table border="1" cellpadding="10">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Age</th>
+                                    </tr>`;
+
+
+                    for (var i=0; i<data.length; i++) {
+                        result = result + `<tr>` +
+                                            `<td>` + data[i].id + `</td>` +
+                                            `<td>` + data[i].name + `</td>` +
+                                            `<td>` + data[i].age + `</td>` +
+                                           `</tr>`;
+                    }
+
+                    result = result + "</table>";
+
+                    $("#result").html(result);
+               })
+           })
+        });
+    </script>
+</head>
+<body>
+    <h1>Get Customer Data</h1>
+
+    <button id="bt1">Get Data</button>
+    <p></p>
+    <div id="result"></div>
+
+</body>

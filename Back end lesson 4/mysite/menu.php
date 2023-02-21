@@ -10,8 +10,10 @@
     }
 ?>
 
+<head>
 
-
+</head>
+<body>
 
 <h1> ANC eShop Management System</h1>
 
@@ -29,3 +31,5 @@
     <li>Invoice Management</li>
     <li><a href="logout.php">Logout</li>
 </ul>
+
+</body>
