@@ -1,1 +1,5 @@
-# NCC_Web_Backend
+# NCC_Web_Ft_Bk
+
+Backend: php + mysql
+
+Frontend: html
