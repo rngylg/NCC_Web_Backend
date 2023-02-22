@@ -2,4 +2,4 @@
 
 Backend: php + mysql
 
-Frontend: html
+Frontend: html + css
